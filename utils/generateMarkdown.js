@@ -80,7 +80,7 @@ function getLicenseBadgeUrl(license_label) {
 function addToData(data) {
 
   // Any multiline text with EOL needs to be replaced with <br>
-  data.desc_EOL_replaced=replaceEOLWithMarkup(data.description);
+  //data.desc_EOL_replaced=replaceEOLWithMarkup(data.description);
 
 
    //addMarkdownHeaders
@@ -96,16 +96,22 @@ function addToData(data) {
   // addDeployedLink 
   //data.deployed_app_intro = data.link_to_deployed_app ? `Link to `:'';
 
+
+  // Additional info for Deployment info 
   data.deployed_app_instruct = data.link_to_deployed_app ? `To access the app, navigate to the link below in a browser:` :'';
   data.deployed_app = data.link_to_deployed_app ? `[Deployed App](data.link_to_deployed_app)`:'';
 
-  // addLicenseInfo
+  // Additional info for License section and badge
   data.license_string =  data.license? `This project is licensed under the terms of the  ${data.license} license.` :'';
   data.license_badge = data.license? getLicenseBadgeUrl(data.license) : '';
 
+   // Additional info for Questions section
+  data.questions_instruct =  data.git_username || data.email_address ? ` For questions or advice, please refer to ` : '';
   data.git_profile_link = data.git_username ? `[Git Hub Profile](https://github.com/${data.git_username})` : '';
-  data.git_profile_link_instruct =  data.git_username ? ` For questions or advice, please refer to ` : '';
-
+  data.contact_us_link =  data.email_address ? `[Contact Us](mailto:${data.email_address})` : '';
+  
+ 
+  
   return data;
 }
 
@@ -137,12 +143,17 @@ function generateMarkdown(data_orig) {
 
   ## Description:
    ${data.description} 
-   ${data.desc_EOL_replaced} 
+  
 
 
-   ${data.deployed_app}
+
+   ---
+
    ${data.deployed_app_instruct}
+
    ${data.link_to_deployed_app}
+
+
    ---  
    ***
 
@@ -152,7 +163,7 @@ function generateMarkdown(data_orig) {
   - [Installation](#installation)
   - [Usage](#usage)
   - [License](#license)
-  - [Contributing](#credits)
+  - [Contributing](#contributing)
   - [Tests](#tests)
   - [Questions](#questions)
 
@@ -183,10 +194,11 @@ function generateMarkdown(data_orig) {
   ${data.tests} 
 
  ---
-  ${data.questions_header} 
-  ${data.git_profile_link_instruct} ${data.git_profile_link} 
 
-  
+  ${data.questions_header}
+  ${data.questions_instruct} 
+  - ${data.git_profile_link} 
+  - ${data.contact_us_link} 
 ---
 `;
 }

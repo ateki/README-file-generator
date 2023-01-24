@@ -61,10 +61,6 @@ const questions = [
             return true
         }
 
-        // todo Add helper option if they want more info then they can press ?
-        // for another prompt that says short description explaining what, why and how.
-        // what was your motivation  why did you build project  what prob lem does it solve
-
     },
     {
         name: 'title',
@@ -162,7 +158,12 @@ const questions = [
             }
             return true
         }
-     }
+     },
+    {
+        name: 'email_address',
+        message: 'Please provide an email address for questions. ',
+        type: 'input'
+    }
      
 ];
 
