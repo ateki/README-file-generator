@@ -24,7 +24,7 @@
 
 
 
-console.log(`promptUser loading...`);
+//console.log(`promptUser loading...`);
 
 
 /**------------------------------
@@ -189,17 +189,19 @@ function promptUser() {
     inquirer.prompt(questions
         ).then(answers => {
 
-            console.log(JSON.stringify(answers, null, '  '));
+            //console.log(JSON.stringify(answers, null, '  '));
 
             let markdown = tools.generateMarkdown(answers);
             // console.log(`markdown = ${markdown}`); 
 
             // ensure output dir exists
-            tools.checkOutputDirExists(OUTPUT_FILEPATH);
+            //tools.checkOutputDirExists(OUTPUT_FILEPATH);
+            tools.checkOutputDirExists(answers.readme_path);
 
             // TODO EXTENSION: please clarify want to create readme or exit
-
-            tools.writeToFile(`${OUTPUT_FILEPATH}${OUTPUT_FILENAME}`, markdown);
+            
+            tools.writeToFile(`${answers.readme_path}${OUTPUT_FILENAME}`, markdown);
+            // tools.writeToFile(`${OUTPUT_FILEPATH}${OUTPUT_FILENAME}`, markdown);
 
         }).catch(error => {
            

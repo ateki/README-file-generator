@@ -10,7 +10,7 @@
  * Requires: fs package built into node.js 
  * No specific npm installs are required for this file.
  */
-console.log(`generateMarkdown loading...`);
+//console.log(`generateMarkdown loading...`);
 
 
 /**------------------------------
@@ -59,7 +59,7 @@ function replaceEOLWithMarkup(str) {
  * 
  */
 function getLicenseBadgeUrl(license_label) {
-  console.log(`license_label = ${license_label}`);
+  //console.log(`license_label = ${license_label}`);
 
   let LICENSE_PATH = `license-${license_label}-red`;
   return license_label ? `${ROOT_BADGE_URL}${LICENSE_PATH}` : '';
@@ -117,7 +117,7 @@ function addToData(data) {
 
 function generateMarkdown(data_orig) {
 
-  console.log(`generateMarkdown entered...`);
+  //console.log(`generateMarkdown entered...`);
   // addHeaderData(data_orig);
   // addLicenseData(data_orig);
   // addDeployedLink(data_orig);
