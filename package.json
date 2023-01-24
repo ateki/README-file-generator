@@ -1,0 +1,22 @@
+{
+  "name": "static-site",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "inquirer": "^8.2.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ateki/README-file-generator.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ateki/README-file-generator/issues"
+  },
+  "homepage": "https://github.com/ateki/README-file-generator#readme"
+}
